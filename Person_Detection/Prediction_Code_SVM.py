@@ -13,7 +13,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 # 2. Importing the dataset
 #Download the dataset from database as a CSV file and store in the local directory. 
 #To read data from CSV file, the simplest way is to use read_csv method of the pandas library. 
-wifidata = pd.read_csv("./cleanedDataSet.csv")   #change your file name
+wifidata = pd.read_csv("./final-data-set.csv")   #change your file name
 
 # 3. Exploratory Data Analysis
 #check the dimensions of the data and see first few records
