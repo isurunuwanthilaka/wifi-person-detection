@@ -9,7 +9,7 @@ wifidata = pd.read_csv("./unknownData.csv")
 
 # 3. load the model from disk
 filename = 'finalized_model.sav'
-model = pickle.load(open(filename, 'rb'))
+model = pickle.load(open(filename, 'rb',encoding='utf-8'))
 
 # 4. Making Predictions
 y_pred = model.predict(wifidata)

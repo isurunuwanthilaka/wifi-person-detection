@@ -45,5 +45,5 @@ print("\nClassification Report:")
 print(classification_report(y_test,y_pred))
 
 # 8.save the model to disk
-filename = 'finalized_model.sav'
+filename = 'finalized_model.pkl'
 pickle.dump(svclassifier, open(filename, 'wb'))

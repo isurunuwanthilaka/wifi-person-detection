@@ -16,26 +16,29 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
-    txt = msg.payload
-
+    #print(msg.topic+" "+str(msg.payload))
+    txt = str(msg.payload)
+    txt=txt[2:-1]
+    p=list(map(int,txt.strip().split(",")))
+    #print(p)
     # Making Predictions
-    y_pred = model.predict(map(int, txt.strip().split(",")))
+    y_pred = model.predict([p])
     person = 0
-    if y_pred == 1:
+    if y_pred[0] == 1:
         person = 1
-    elif y_pred == 2:
+    elif y_pred[0] == 2:
         person = 5
     
     print(datetime.datetime.now())
-    print(person + " person/s detected.")
-
+    print(str(person) + " person/s detected.")
 
 # load the model from disk
-filename = 'finalized_model.sav'
-model = pickle.load(open(filename, 'rb'))
+filename = 'finalized_model.pkl'
+file = open(filename, 'rb')
+model = pickle.load(file)
 
 client = mqtt.Client()
-client.connect("iot.eclipse.org", 1883, 60)
 client.on_connect = on_connect
 client.on_message = on_message
+client.connect('localhost', 1883, 60)
+client.loop_forever()
