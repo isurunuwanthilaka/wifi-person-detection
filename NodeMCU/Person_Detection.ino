@@ -1,26 +1,46 @@
+/*
+ *  This sketch demonstrates how to scan WiFi networks. 
+ *  The API is almost the same as with the WiFi Shield library, 
+ *  the most obvious difference being the different file you need to include:
+ */
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-String id="room1";
+// Update these with values suitable for your network.
 
-const char* ssid = "smart-home-iot";
-const char* password = "15042741052";
-const char* mqtt_server = "iot.eclipse.org";
-const char* outTopic="isurun";
+String id="1";
+
+const char* ssid = "IsuruAp";
+const char* password = "Isuru1995";
+const char* mqtt_server = "192.168.43.205";
+const char* outTopic="entc/wifipd";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 long lastMsg = 0;
-char msg[400];
+char msg[1024];
 int value = 0;
 
+void setup() {
+   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  Serial.begin(115200);
+  //setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+  Serial.println("Setup done");
+}
 
+void loop() {
+  scanWifi();
+  connectSend();
+  delay(500);
+}
 
 void connectSend() {
   WiFi.mode(WIFI_STA);
-  delay(400);
+  delay(100);
   setup_wifi();
-  delay(400);
+  delay(100);
   // Loop until we're reconnected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
@@ -28,9 +48,9 @@ void connectSend() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      Serial.println("Ready to transmit");
-      Serial.println(msg);
       client.publish(outTopic, msg);
+      Serial.print("published");
+      Serial.print(msg);
       // ... and resubscribe
      // client.subscribe("inTopic");
     } else {
@@ -42,6 +62,8 @@ void connectSend() {
     }
   }
 }
+//{"id" : "1","UoM_Wireless1" : "-55","FaryLink_61AEB41" : "-52","UoM_Wireless1" : "-80","eduroam1" : "-54","FaryLink_4374501" : "-63","eduroam1" : "-79","iot1" : "-53","Jungle Book10" : "-71","HUAWEI nova 2i11" : "-85"}
+
 void scanWifi(){
    // Set WiFi to station mode and disconnect from an AP if it was previously connected
    WiFi.mode(WIFI_STA);
@@ -49,7 +71,7 @@ void scanWifi(){
    delay(100);
    Serial.println("scan start");
   /*clear the buffer and load data*/
-  memset(msg,400,0);
+  memset(msg,1024,0);
   String str="";
   str+='{';
   str+="\"id\" : \"";
@@ -92,7 +114,7 @@ void scanWifi(){
   str+='}';
   
   Serial.println(str);
-  str.toCharArray(msg,400);
+  str.toCharArray(msg,1024);
   // Wait a bit before scanning again
 }
 
@@ -100,7 +122,7 @@ void scanWifi(){
 
 void setup_wifi() {
 
-  delay(100);
+  delay(10);
   // We start by connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
@@ -128,19 +150,3 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
   Serial.println();
 }
-
-void setup() {
-  Serial.begin(115200);
-  client.setServer(mqtt_server, 1883);
-  client.setCallback(callback);
-  Serial.println("Setup done");
-}
-
-void loop() {
-  scanWifi();
-  connectSend();
-  delay(2000);
-}
-
-
-
