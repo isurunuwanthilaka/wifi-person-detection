@@ -4,6 +4,7 @@ import pandas as pd
 import paho.mqtt.client as mqtt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
+import ast
 
 # The callback for when the client receives a CONNACK response from the server.
 print("###### Welcome to wifi person detector ######")
@@ -16,21 +17,27 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    #print(msg.topic+" "+str(msg.payload))
-    txt = str(msg.payload)
-    txt=txt[2:-1]
-    p=list(map(int,txt.strip().split(",")))
-    #print(p)
-    # Making Predictions
-    y_pred = model.predict([p])
-    person = 0
-    if y_pred[0] == 1:
-        person = 1
-    elif y_pred[0] == 2:
-        person = 5
-    
-    print(datetime.datetime.now())
-    print(str(person) + " person/s detected.")
+    try:
+        print("-----------------------------")
+        print(msg.topic+" "+str(msg.payload))
+        data1=msg.payload
+        dic = ast.literal_eval(data1.decode("utf-8"))
+        #print(dic)
+        p = [dic.setdefault("Chamidi1",-100),dic.setdefault("NipunaM1",-100),dic.setdefault("IsuruAp6",-100),dic.setdefault("Sandali11",-60),dic.setdefault("UoM_Wireless1",-100),dic.setdefault("UNIC-wifi11",-100)]
+        p=list(map(int,p))
+        print("p",p)
+        # Making Predictions
+        y_pred = model.predict([p])
+        person = 0
+        if y_pred[0] == 1:
+            person = 1
+        elif y_pred[0] == 2:
+            person = 5
+        
+        print(datetime.datetime.now())
+        print(str(person) + " person/s detected.")
+    except Exception as e:
+        print(e)
 
 # load the model from disk
 filename = 'finalized_model.pkl'
@@ -40,5 +47,5 @@ model = pickle.load(file)
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-client.connect("iot.eclipse.org", 1883, 60)
+client.connect("iot.eclipse.org", 1883, 120)
 client.loop_forever()
