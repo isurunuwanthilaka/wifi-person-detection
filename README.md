@@ -23,7 +23,11 @@ Understanding the nature of the data set is very important in building a better 
 All data points of each wireless access point are plotted in the same scale. The radius of the each point is proportional to the frequency of the respective RSSI value.
 
 <div align="center">
+<<<<<<< HEAD
    <img src="Documentation/Graphs/data_scatter_plot.png">
+=======
+   <img src="Document/Graphs/data_scatter_plot.png">
+>>>>>>> 3a864cb042781845d41309d49d6df0787dedb729
 </div>
 <br/>
 
@@ -37,7 +41,11 @@ Observations :
 Following 3D plot developed based on data sets of  three wireless access points ; Chamidi, NipunaM, IsuruAp. 
 
 <div align="center">
+<<<<<<< HEAD
    <img src="Documentation/Graphs/3d-view.png">
+=======
+   <img src="Document/Graphs/3d-view.png">
+>>>>>>> 3a864cb042781845d41309d49d6df0787dedb729
 </div>
 <br/>
 
@@ -48,7 +56,11 @@ Observations:
 ## 3. 5D plot (considering 5 APs)
 
 <div align="center">
+<<<<<<< HEAD
    <img src="Documentation/Graphs/6d-view.png">
+=======
+   <img src="Document/Graphs/6d-view.png">
+>>>>>>> 3a864cb042781845d41309d49d6df0787dedb729
 </div>
 <br/>
 
