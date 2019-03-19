@@ -13,3 +13,42 @@ This simple application includes following components.
 * Model Training [SVM or Appropriate ML model]
 
 * Arduino Uno - Display Person Availability
+
+## Graphical Clarification
+
+Understanding the nature of the data set is very important in building a better prediction model. Therefore, in this section we are going to provide some visual representations to support our results.
+
+### 1. Data distribution
+
+All data points of each wireless access point are plotted in the same scale. The radius of the each point is proportional to the frequency of the respective RSSI value.
+
+<div align="center">
+   <img src="Document/Graphs/data_scatter_plot.png">
+</div>
+<br/>
+
+Observations :
+* Some RSSI values have higher frequencies (points with higher radius).
+
+* Points with higher frequencies of each AP are not in the same pattern. 
+
+### 2. 3D plot (considering 3 APs)
+
+Following 3D plot developed based on data sets of  three wireless access points ; Chamidi, NipunaM, IsuruAp. 
+
+<div align="center">
+   <img src="Document/Graphs/3d-view.png">
+</div>
+<br/>
+
+Observations:
+
+* 3 clusters for no-person, two-person,five-person events 
+
+## 3. 5D plot (considering 5 APs)
+
+<div align="center">
+   <img src="Document/Graphs/6d-view.png">
+</div>
+<br/>
+
