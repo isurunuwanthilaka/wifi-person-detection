@@ -31,14 +31,14 @@ for filename in files:
 # 2.joining cleaned data sets 
 filename="final-data-set.csv"
 
-data0 = pd.read_csv("cleaned_wifi_data0.csv")[['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']]
-data1 = pd.read_csv("cleaned_wifi_data01.csv")[['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']]
-data2 = pd.read_csv("cleaned_wifi_data02.csv")[['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']]
-data3 = pd.read_csv("cleaned_wifi_data10.csv")[['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']]
-data4 = pd.read_csv("cleaned_wifi_data11.csv")[['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']]
-data5 = pd.read_csv("cleaned_wifi_data21.csv")[['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']]
-data6 = pd.read_csv("cleaned_wifi_data22.csv")[['Chamidi11','NipunaM6','IsuruAp6','Sandali1','UoM_Wireless1','UNIC-wifi11','id']]
-data6.columns=['Chamidi1','NipunaM6','IsuruAp6','Sandali11','UoM_Wireless11','UNIC-wifi11','id']
+data0 = pd.read_csv("cleaned_wifi_data0.csv")[['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']]
+data1 = pd.read_csv("cleaned_wifi_data01.csv")[['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']]
+data2 = pd.read_csv("cleaned_wifi_data02.csv")[['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']]
+data3 = pd.read_csv("cleaned_wifi_data10.csv")[['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']]
+data4 = pd.read_csv("cleaned_wifi_data11.csv")[['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']]
+data5 = pd.read_csv("cleaned_wifi_data21.csv")[['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']]
+data6 = pd.read_csv("cleaned_wifi_data22.csv")[['Chamidi11','NipunaM6','IsuruAp6','UoM_Wireless1','UNIC-wifi11','id']]
+data6.columns=['Chamidi1','NipunaM6','IsuruAp6','UoM_Wireless11','UNIC-wifi11','id']
 
 data0 = data0.append(data1)
 data0 = data0.append(data2)

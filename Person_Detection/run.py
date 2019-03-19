@@ -22,7 +22,7 @@ def on_message(client, userdata, msg):
         data1=msg.payload
         dic = ast.literal_eval(data1.decode("utf-8"))
         #print(dic)
-        p = [dic.setdefault("Chamidi1",-100),dic.setdefault("NipunaM1",-100),dic.setdefault("IsuruAp6",-100),dic.setdefault("Sandali11",-60),dic.setdefault("UoM_Wireless1",-100),dic.setdefault("UNIC-wifi11",-100)]
+        p = [dic.setdefault("Chamidi1",-100),dic.setdefault("NipunaM1",-100),dic.setdefault("IsuruAp6",-100),dic.setdefault("UoM_Wireless1",-100),dic.setdefault("UNIC-wifi11",-100)]
         p=list(map(int,p))
         print("p",p)
         # Making Predictions
