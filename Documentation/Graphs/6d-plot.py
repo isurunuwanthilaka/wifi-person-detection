@@ -32,5 +32,5 @@ for data, color, size, mark in zip(data_points, colors, ss, markers):
 ax.set_xlabel('Chamidi1')
 ax.set_ylabel('NipunaM6')
 ax.set_zlabel('IsuruAp6')
-plt.legend()
+
 plt.show()

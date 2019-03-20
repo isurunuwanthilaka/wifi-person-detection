@@ -1,0 +1,104 @@
+Dimensions of the data:
+(748, 6)
+
+First few records:
+   Chamidi1  NipunaM6  IsuruAp6  UoM_Wireless11  UNIC-wifi11  id
+0       -77       -62       -55             -89          -91   0
+1       -77       -62       -52             -89          -88   0
+2       -74       -58       -54             -91          -89   2
+3       -78       -62       -55             -93          -86   0
+4       -84       -51       -62             -90          -86   1
+SVC : Training starting
+
+Confusion Matrix:
+[[36  2  1]
+ [11 43  5]
+ [ 4  4 44]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.71      0.92      0.80        39
+           1       0.88      0.73      0.80        59
+           2       0.88      0.85      0.86        52
+
+   micro avg       0.82      0.82      0.82       150
+   macro avg       0.82      0.83      0.82       150
+weighted avg       0.83      0.82      0.82       150
+
+GNB : Training starting
+
+Confusion Matrix:
+[[35  2  2]
+ [15 41  3]
+ [ 2  5 45]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.67      0.90      0.77        39
+           1       0.85      0.69      0.77        59
+           2       0.90      0.87      0.88        52
+
+   micro avg       0.81      0.81      0.81       150
+   macro avg       0.81      0.82      0.81       150
+weighted avg       0.82      0.81      0.81       150
+
+LR : Training starting
+
+Warning (from warnings module):
+  File "C:\Users\Isuru Nuwanthilaka\AppData\Local\Programs\Python\Python37-32\lib\site-packages\sklearn\linear_model\logistic.py", line 758
+    "of iterations.", ConvergenceWarning)
+ConvergenceWarning: lbfgs failed to converge. Increase the number of iterations.
+
+Confusion Matrix:
+[[33  5  1]
+ [12 36 11]
+ [ 4  4 44]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.67      0.85      0.75        39
+           1       0.80      0.61      0.69        59
+           2       0.79      0.85      0.81        52
+
+   micro avg       0.75      0.75      0.75       150
+   macro avg       0.75      0.77      0.75       150
+weighted avg       0.76      0.75      0.75       150
+
+DTC : Training starting
+
+Confusion Matrix:
+[[33  5  1]
+ [ 5 48  6]
+ [ 1  7 44]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.85      0.85      0.85        39
+           1       0.80      0.81      0.81        59
+           2       0.86      0.85      0.85        52
+
+   micro avg       0.83      0.83      0.83       150
+   macro avg       0.84      0.84      0.84       150
+weighted avg       0.83      0.83      0.83       150
+
+KNN : Training starting
+
+Confusion Matrix:
+[[33  5  1]
+ [ 8 47  4]
+ [ 2  3 47]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.77      0.85      0.80        39
+           1       0.85      0.80      0.82        59
+           2       0.90      0.90      0.90        52
+
+   micro avg       0.85      0.85      0.85       150
+   macro avg       0.84      0.85      0.84       150
+weighted avg       0.85      0.85      0.85       150
