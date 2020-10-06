@@ -149,8 +149,4 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-<<<<<<< HEAD:NodeMCU/Person_Detection.ino
 }
-=======
-}
->>>>>>> 53d9f83403d41b9568b7f206d829c637a0d443aa:Person_Detection/Person_Detection.ino
